@@ -326,6 +326,38 @@ input.ng-touched{
     border-bottom:4px solid black;
 }
 
+
+/* Navigation */
+.navigation{
+    position:absolute;
+    height:100px;
+    top:0px;
+    width:100%;
+    background:white;
+    left:0;
+    z-index:111;
+}
+
+.navigation a{
+    display:inline-block;
+    line-height:40px;
+    font-size:22px;
+    margin-left:5px;
+    margin-right:5px;
+    color:#161616;
+    text-decoration: none;
+    font-family: "Roboto";
+    text-transform: uppercase;
+    letter-spacing:1px;
+}
+
+.navigation img{
+    max-height:50px;
+    padding:5px;
+    position:relative;
+}
+
+
 #footer{
     position:fixed;
     margin:auto;
