@@ -333,7 +333,6 @@ input.ng-touched{
     height:100px;
     top:0px;
     width:100%;
-    background:white;
     left:0;
     z-index:111;
 }
@@ -341,20 +340,40 @@ input.ng-touched{
 .navigation a{
     display:inline-block;
     line-height:40px;
-    font-size:22px;
+    font-size:18px;
     margin-left:5px;
     margin-right:5px;
     color:#161616;
+    margin-top:0;
+    padding:3px;
     text-decoration: none;
-    font-family: "Roboto";
+    font-family: "Karla";
     text-transform: uppercase;
     letter-spacing:1px;
+}
+
+.navigation a:hover{
+    text-decoration:underline;
 }
 
 .navigation img{
     max-height:50px;
     padding:5px;
     position:relative;
+}
+
+.navigationLogo{
+    position: relative;
+    top:25px;
+    font-family:"Amiri";
+    font-weight:bold;
+    display:block;
+    z-index:-1;
+    padding:.5em;
+    margin-top:12px;
+    margin-bottom:0;
+    font-size:48px;
+    font-style:italic;
 }
 
 
@@ -371,3 +390,65 @@ input.ng-touched{
     font-family:"Apercu Mono";
     text-decoration:underline;
 }
+
+
+#inputmap {
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+.mapcontainer{
+    width:90%;
+    margin:auto;
+    display:block;
+    height:500px;
+    top:120px;
+    position:relative;
+    border:1em solid #000;
+    left:0;
+}
+
+/* GOODS */
+.itemscontainer h1{
+    font-family:"Amiri";
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing:2px;
+    font-size:16px;
+}
+
+.goodsItem{
+    width:150px;
+    height:100px;
+    display:inline-block;
+    margin:.5em;
+}
+
+.goodsItem h2{
+    left:20px;
+    position:relative;
+    color:#ffd9c9;
+    font-size:14px;
+}
+
+.itemscontainer a{
+    color:black;
+    display:inline-block;
+    border:1px solid black;
+    text-decoration: none;
+    padding:.5em;
+    -webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -ms-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    transition: all .4s linear;
+}
+
+.itemscontainer a:hover{
+    background:black;
+    color:white;
+}
+
+
+*, *::before, *::after { box-sizing: inherit; }
