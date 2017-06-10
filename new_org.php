@@ -152,7 +152,7 @@
 				<form name="locations" action="new_location.php" method="post" onsubmit="return validate_map();">
 					<input class='textbox' type="text" name="name" id="map_marker_name" placeholder="Organization Name"/><br/>
 					<input class='textbox' type="text" name="address" placeholder="Complete Address"/><br/>
-					<input class='textbox' type="text" name="operating" placeholder="Operating Hours"/><br/><br/>
+					<input class='textbox' type="text" name="operating" placeholder="Operating Hours (eg. 7:00 AM - 8:00 PM"/><br/><br/>
 
 					<input class='textbox' type="text" name="lat" id='lat' placeholder="Latitude"/><br/>
 					<input class='textbox' type="text" name="lng" id='lng' placeholder="Longitude"/><br/><br/>
@@ -207,14 +207,13 @@
 					'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 				id: 'mapbox.streets'
 			}).addTo(map)
-			new L.Control.GPlaceAutocomplete().addTo(map);
 
-			function add_location(e) {
+			function report(e) {
 				report_popup.style.display = "block"
 				document.getElementById('lat').value = e.latlng.lat
 				document.getElementById('lng').value = e.latlng.lng
 			}
-			map.on('click', add_location)
+			map.on('click', report)
 		</script>
 	</body>
 </html>
