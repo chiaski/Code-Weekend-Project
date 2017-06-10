@@ -199,7 +199,7 @@
 				}
 			}
 
-			var map = L.map('inputmap').setView([14.421538, 121.030319], 13)
+			var map = L.map('inputmap').setView([14.553177, 121.025701], 20)
 			map.locate({setView : true, enableHighAccuracy : true})
 
 			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
