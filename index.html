@@ -84,6 +84,8 @@
                     document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                     document.cookie = $scope.selectDisaster;
                     alert("Cookie is set to: " + $scope.selectDisaster);
+                    var pageredirect = $scope.selectPage + '.html';
+                    window.location.href = pageredirect.toLowerCase();
                 }
             });
             
