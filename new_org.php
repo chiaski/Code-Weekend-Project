@@ -118,10 +118,10 @@
 		<form name="new_org" action="update_org.php" method="post" onsubmit="return validate_main()" enctype="multipart/form-data">
 			<input class='textbox' type="text" name="orgname" id='org_name' placeholder="Organization Name"/><br/><br/>
 			
-			<textarea name="desc" placeholder="Description - Services, area of focus, scope of work."/></textarea><br/><br/>
-			
 			Upload your logo: <br/>
 			<input type="file" name="fileToUpload" id="fileToUpload"><br/><br/>
+			
+			<textarea name="desc" placeholder="Description - Services, area of focus, scope of work."/></textarea><br/><br/>
 			
 			<input type="radio" name="type" id="fundraiser" value="fundraiser">
 			<label for="fundraiser">
@@ -137,6 +137,8 @@
 			<label for="relief">
 				Relief Operation (eg. Medical Mission)
 			</label><br/><br/>
+
+			<textarea name="goods" placeholder="Item, Priority (low/med/high) - Separate by linebreak."/></textarea><br/><br/>
 
 			Bank Deposit Details<br/>
 			<input class='textbox' type="text" name="bank" placeholder="Bank (eg. BDO, BPI)"/><br/>
