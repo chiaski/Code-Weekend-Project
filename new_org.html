@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TITLE</title>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.8.3.js"></script>
+
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+		<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+		
+		<script src="leaflet-gplaces-autocomplete.js"></script>
+		<link rel="stylesheet" href="leaflet-gplaces-autocomplete.css" />
+
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVhS3zPjsr7X4khkY8GN7Er6qs7D63Im8&libraries=places"></script>
+
+		<script type='text/javascript'>
+			function Branch(address, operate, lat, lng) {
+				this.address = address
+				this.operating = operate
+				this.coords = [lat, lng]
+			}
+
+			function validate_main() {
+				if(document.new_org.orgname.value == "") {
+					alert("What is the name of your organization?")
+					return false
+				}
+
+				if(document.new_org.desc.value == "") {
+					alert("Describe your organization.")
+					return false
+				}
+
+				if(document.new_org.type.value == "") {
+					alert("Please select a type.\nYou may refer to the type ranking chart.")
+					return false
+				}
+				return true
+			}
+
+			function validate_map() {
+				if(document.lcoations.address.value == "") {
+					alert("Please indicate the full address of the branch.")
+					return false
+				}
+				if(document.locations.operating.value == "") {
+					alert("Please indicate this branch's operating hours.")
+					return false
+				}
+			}
+		</script>
+
+		<style>
+			#inputmap {
+				width: 700px;
+				height: 500px;
+				z-index: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form name="new_org" action="update_org.php" method="post" onsubmit="return validate_main()">
+			<input class='textbox' type="text" name="orgname"  placeholder="Organization Name"/><br/><br/>
+			
+			<textarea name="desc" placeholder="Description - Services, area of focus, scope of work."/></textarea><br/><br/>
+			
+			Upload your logo: <br/>
+			<input type="file" name="fileToUpload" id="fileToUpload"><br/><br/>
+			
+			<input type="radio" name="type" id="fundraiser" value="fundraiser">
+			<label for="fundraiser">
+				Fundraiser
+			</label>
+
+			<input type="radio" name="type" id="goods" value="goods">
+			<label for="goods">
+				Goods Packaging
+			</label>
+
+			<input type="radio" name="type" id="relief" value="relief">
+			<label for="relief">
+				Relief Operation (eg. Medical Mission)
+			</label><br/><br/>
+
+			<div id="inputmap"></div><br/>
+
+			Bank Deposit Details<br/>
+			<input class='textbox' type="text" name="bank" placeholder="Bank (eg. BDO, BPI)"/><br/>
+			<input class='textbox' type="text" name="target_name" placeholder="Account Name"/><br/>
+			<input class='textbox' type="text" name="account_number" placeholder="Account Number"/><br/><br/>
+			<input type="submit" id="submit_button"/><br/>
+		</form>
+
+		<script>
+			var map = L.map('inputmap').setView([14.421538, 121.030319], 13)
+			map.locate({setView : true, enableHighAccuracy : true})
+
+			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+				maxZoom: 18,
+				attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+					'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+				id: 'mapbox.streets'
+			}).addTo(map)
+			new L.Control.GPlaceAutocomplete().addTo(map);
+		</script>
+	</body>
+</html>
