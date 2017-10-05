@@ -1,0 +1,107 @@
+<html>
+    
+    <head>
+       <meta charset="utf-8">
+        <title>Landas: Goods</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:700,700i|Amiri:400,400i,700,700i" rel="stylesheet">
+        
+        
+        
+        <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link href="http://chiaski.com/src/animate.css" rel="stylesheet">
+        <script src="http://chiaski.com/src/wow.js"></script>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+		<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    </head>
+    <body>
+        <div ng-app="goods" ng-controller="myCtrl">
+        
+        <div class="navigation">
+        <center><div class="navigationLogo" style="display:inline;text-align:center;">Landas<br /></div>
+            <a>{{disasterName}}:</a>
+            <a href="">Overview</a>
+            <a href="">Cash</a>
+            <a href="">Goods</a>
+            <a href="">Time</a>
+        </center>
+        </div>
+            
+        <div class="container">
+            
+            
+        <div class="box" style="min-height:680px;">
+            <div class="mapcontainer fadeIn wow">
+                <div id="inputmap"></div>
+            </div>
+        </div>
+        
+    
+        <div class="box">
+            
+         <div class="itemscontainer fadeInUp wow">
+                <h1>In-demand items</h1>
+             <center>
+             <div class="goodsItem" style="background-image:url(img/itemWomens.png)"><h2>Sanitary Napkins</h2></div>
+             <div class="goodsItem" style="background-image:url(img/itemBlankets.png)"><h2>Blankets & Mats</h2></div>
+                 <br /><br />
+            <a href="#seegoods">See more goods</a>
+            </center>
+        </div>
+                
+        </div>
+            
+        <div class="box" id="seegoods" style="margin-top:2em;">
+            
+         <div class="itemscontainer fadeInUp wow">
+                <h1>All Goods</h1>
+            <center>
+            
+            </center>
+        </div>
+                
+        </div>
+        
+        </div>
+        
+        <script>
+            var app = angular.module('goods', []);
+            app.controller('myCtrl', function($scope) {
+                
+            });
+        </script>
+            
+            		<script>
+			var map = L.map('inputmap').setView([14.421538, 121.030319], 13)
+			map.locate({setView : true, enableHighAccuracy : true})
+
+			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+				maxZoom: 18,
+				attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+					'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+				id: 'mapbox.streets'
+			}).addTo(map)
+
+			function report(e) {
+				report_popup.style.display = "block"
+				document.getElementById('lat').value = e.latlng.lat
+				document.getElementById('lng').value = e.latlng.lng
+			}
+			map.on('click', report)
+		</script>
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        -->
+  
+        <script src="js/main.js"></script>
+            
+    </body>
+</html>
